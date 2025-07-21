@@ -10,67 +10,97 @@
 
 <body>
     <div class="menu-lateral">
-        <div class="menu-itens">
-            <h2>ERP Menu</h2>
-            <ul>
-                <li onclick="abrirPainel()">🏠 Painel</li>
-                <li onclick="abrirUsuarios()">👥 Usuários</li>
-                <!-- Aqui acima, você pode inserir outros itens, e ordenar como quiser -->
-            </ul>
+
+        <div class="menu-lateral" id="menuLateral">
+            <div class="menu-topo">
+                <button class="menu-toggle" id="btnToggleMenu" title="Recolher/Expandir">
+                    <!-- Ícone SVG de hambúrguer -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+                        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
+                    </svg>
+                </button>
+
+                <div class="menu-itens">
+                    <a href="#" class="menu-link" title="Painel">
+                        <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z" />
+                        </svg>
+                        <span class="menu-text">Painel</span>
+                    </a>
+
+                    <a href="#" class="menu-link" title="Usuários">
+                        <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
+                        </svg>
+                        <span class="menu-text">Usuários</span>
+                    </a>
+                </div>
+            </div>
+            <button class="btn-sair" id="btnSair" title="Sair">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zM20 3h-8v2h8v14h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                </svg>
+                <span class="menu-text">Sair</span>
+            </button>
         </div>
 
-        <button onclick="sair()">Sair</button>
     </div>
 
-        <div class="conteudo">
-            <h1>Usuários Cadastrados</h1>
+    <div class="conteudo">
+        
+        <!-- Conteúdo principal -->
+        <main class="conteudo">
+            <h1>Gerenciar Usuários</h1>
 
-            <form id="formNovoUsuario">
-                <label>Nome:</label>
-                <input type="text" id="nomeNovo" required>
+            <!-- 🧾 Formulário para criar novo usuário -->
+            <section class="formulario-usuario">
+                <h2>Novo Usuário</h2>
+                <form id="formCadastroUsuario">
+                    <input type="text" id="nome" placeholder="Nome" required />
+                    <input type="text" id="login" placeholder="Login" required />
+                    <input type="password" id="senha" placeholder="Senha" required />
+                    <select id="nivel" required>
+                        <option value="">Selecione o nível</option>
+                        <option value="master">Master</option>
+                        <option value="comum">Comum</option>
+                    </select>
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <p id="mensagemFeedback"></p>
+            </section>
 
-                <label>Login:</label>
-                <input type="text" id="loginNovo" required>
+            <!-- 📋 Lista de usuários existentes -->
+            <section class="lista-usuarios">
+                <h2>Usuários Cadastrados</h2>
+                <table id="tabelaUsuarios">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Login</th>
+                            <th>Nível</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Usuários serão carregados aqui via JS -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <script>
+            const btnToggle = document.getElementById('btnToggleMenu');
+            const menuLateral = document.querySelector('.menu-lateral');
 
-                <label>Senha:</label>
-                <input type="password" id="senhaNovo" required>
+            btnToggle.addEventListener('click', () => {
+                menuLateral.classList.toggle('recolhido');
+            });
 
-                <label>Nível:</label>
-                <select id="nivelNovo">
-                    <option value="normal">Normal</option>
-                    <option value="admin">Admin</option>
-                </select>
+            document.getElementById('btnToggleMenu').addEventListener('click', () => {
+                document.getElementById('menuLateral').classList.toggle('recolhido');
+            });
 
-                <button type="submit">Cadastrar</button>
-            </form>
-
-            <hr>
-
-            <table id="tabelaUsuarios">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Login</th>
-                        <th>Nível</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Usuários virão aqui -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        const btnToggle = document.getElementById('btnToggleMenu');
-        const menuLateral = document.querySelector('.menu-lateral');
-
-        btnToggle.addEventListener('click', () => {
-            menuLateral.classList.toggle('recolhido');
-        });
-    </script>
+        </script>
 </body>
 
 </html>

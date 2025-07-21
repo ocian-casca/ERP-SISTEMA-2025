@@ -21,6 +21,14 @@ Contém estilos padrão para layout, menu lateral, botões e responsividade
   z-index: 100;
 }
 
+.menu-topo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+
 /* Recolhido (somente ícones visíveis) */
 .menu-lateral.recolhido {
   width: 60px;
