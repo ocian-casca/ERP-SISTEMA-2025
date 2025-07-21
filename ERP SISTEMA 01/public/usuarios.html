@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Usuários</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/usuarios.css"> <!-- CSS exclusivo -->
+</head>
+
+<body>
+    <div class="menu-lateral">
+        <div class="menu-itens">
+            <h2>ERP Menu</h2>
+            <ul>
+                <li onclick="abrirPainel()">🏠 Painel</li>
+                <li onclick="abrirUsuarios()">👥 Usuários</li>
+                <!-- Aqui acima, você pode inserir outros itens, e ordenar como quiser -->
+            </ul>
+        </div>
+
+        <button onclick="sair()">Sair</button>
+    </div>
+
+        <div class="conteudo">
+            <h1>Usuários Cadastrados</h1>
+
+            <form id="formNovoUsuario">
+                <label>Nome:</label>
+                <input type="text" id="nomeNovo" required>
+
+                <label>Login:</label>
+                <input type="text" id="loginNovo" required>
+
+                <label>Senha:</label>
+                <input type="password" id="senhaNovo" required>
+
+                <label>Nível:</label>
+                <select id="nivelNovo">
+                    <option value="normal">Normal</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <hr>
+
+            <table id="tabelaUsuarios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Login</th>
+                        <th>Nível</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Usuários virão aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const btnToggle = document.getElementById('btnToggleMenu');
+        const menuLateral = document.querySelector('.menu-lateral');
+
+        btnToggle.addEventListener('click', () => {
+            menuLateral.classList.toggle('recolhido');
+        });
+    </script>
+</body>
+
+</html>

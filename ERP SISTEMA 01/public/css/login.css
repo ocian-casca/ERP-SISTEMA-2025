@@ -1,0 +1,64 @@
+/* public/css/login.css */
+
+/* Container centralizado no meio da tela */
+.login-container {
+  background-color: white;
+  padding: 50px 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 90%;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+/* Título do formulário */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+/* Estilo dos labels */
+.login-container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo dos inputs */
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Botão de login */
+.login-container button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Mensagem de erro */
+#mensagemErro {
+  color: red;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
