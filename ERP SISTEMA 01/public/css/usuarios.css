@@ -1,0 +1,100 @@
+/* ============================== */
+/* 🎨 Estilos exclusivos - USUÁRIOS */
+/* ============================== */
+
+main.conteudo {
+  padding: 30px;
+  margin-left: 240px; /* Espaço para o menu lateral fixo */
+  transition: margin-left 0.3s;
+}
+
+/* Quando menu estiver recolhido */
+.menu-lateral.recolhido + .conteudo,
+.menu-lateral.recolhido ~ .conteudo {
+  margin-left: 60px;
+}
+
+/* 🧾 Formulário de cadastro */
+.formulario-usuario {
+  background: #f8f9fa;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.formulario-usuario h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+.formulario-usuario form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.formulario-usuario input,
+.formulario-usuario select {
+  flex: 1 1 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.formulario-usuario button {
+  padding: 10px 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formulario-usuario button:hover {
+  background: #219150;
+}
+
+/* 📋 Lista de usuários */
+.lista-usuarios h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.lista-usuarios table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.lista-usuarios th,
+.lista-usuarios td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.lista-usuarios th {
+  background: #2c3e50;
+  color: white;
+}
+
+.lista-usuarios tr:hover {
+  background: #f2f2f2;
+}
+
+.lista-usuarios button {
+  padding: 6px 12px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lista-

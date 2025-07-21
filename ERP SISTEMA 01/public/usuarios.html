@@ -47,60 +47,59 @@
 
     </div>
 
-    <div class="conteudo">
-        
-        <!-- Conteúdo principal -->
-        <main class="conteudo">
-            <h1>Gerenciar Usuários</h1>
+    <!-- Conteúdo principal -->
+    <main class="conteudo">
+        <h1>Gerenciar Usuários</h1>
 
-            <!-- 🧾 Formulário para criar novo usuário -->
-            <section class="formulario-usuario">
-                <h2>Novo Usuário</h2>
-                <form id="formCadastroUsuario">
-                    <input type="text" id="nome" placeholder="Nome" required />
-                    <input type="text" id="login" placeholder="Login" required />
-                    <input type="password" id="senha" placeholder="Senha" required />
-                    <select id="nivel" required>
-                        <option value="">Selecione o nível</option>
-                        <option value="master">Master</option>
-                        <option value="comum">Comum</option>
-                    </select>
-                    <button type="submit">Cadastrar</button>
-                </form>
-                <p id="mensagemFeedback"></p>
-            </section>
+        <!-- 🧾 Formulário para criar novo usuário -->
+        <section class="formulario-usuario">
+            <h2>Novo Usuário</h2>
+            <form id="formCadastroUsuario">
+                <input type="text" id="nome" placeholder="Nome" required />
+                <input type="text" id="login" placeholder="Login" required />
+                <input type="password" id="senha" placeholder="Senha" required />
+                <select id="nivel" required>
+                    <option value="">Selecione o nível</option>
+                    <option value="master">Master</option>
+                    <option value="comum">Comum</option>
+                </select>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p id="mensagemFeedback"></p>
+        </section>
 
-            <!-- 📋 Lista de usuários existentes -->
-            <section class="lista-usuarios">
-                <h2>Usuários Cadastrados</h2>
-                <table id="tabelaUsuarios">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Login</th>
-                            <th>Nível</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Usuários serão carregados aqui via JS -->
-                    </tbody>
-                </table>
-            </section>
-        </main>
-        <script>
-            const btnToggle = document.getElementById('btnToggleMenu');
-            const menuLateral = document.querySelector('.menu-lateral');
+        <!-- 📋 Lista de usuários existentes -->
+        <section class="lista-usuarios">
+            <h2>Usuários Cadastrados</h2>
+            <table id="tabelaUsuarios">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Login</th>
+                        <th>Nível</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Usuários serão carregados aqui via JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script>
+        const btnToggle = document.getElementById('btnToggleMenu');
+        const menuLateral = document.querySelector('.menu-lateral');
 
-            btnToggle.addEventListener('click', () => {
-                menuLateral.classList.toggle('recolhido');
-            });
+        btnToggle.addEventListener('click', () => {
+            menuLateral.classList.toggle('recolhido');
+        });
 
-            document.getElementById('btnToggleMenu').addEventListener('click', () => {
-                document.getElementById('menuLateral').classList.toggle('recolhido');
-            });
+        document.getElementById('btnToggleMenu').addEventListener('click', () => {
+            document.getElementById('menuLateral').classList.toggle('recolhido');
+        });
 
-        </script>
+    </script>
 </body>
 
 </html>
