@@ -1,22 +1,56 @@
-/* 🌐 BASE.CSS
-✳️ CSS global para todas as telas do ERP
-Contém estilos padrão para layout, menu lateral, botões e responsividade
-*/
+/* =========================================================
+   BASE.CSS
+   Estilos gerais do ERP
+   ========================================================= */
 
-/* ========== MENU LATERAL FIXO ========== */
+:root {
+  --cor-menu: #2c3e50;
+  --cor-menu-hover: #34495e;
+  --cor-fundo: #f4f4f4;
+  --cor-branco: #ffffff;
+  --cor-texto: #333333;
+  --cor-borda: #cccccc;
+  --cor-perigo: #e74c3c;
+  --cor-perigo-hover: #c0392b;
+  --cor-sucesso: #27ae60;
+  --cor-sucesso-hover: #219150;
+  --raio: 5px;
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+/* =========================================================
+   MENU LATERAL
+   ========================================================= */
+
 .menu-lateral {
   position: fixed;
   top: 0;
   left: 0;
   width: 240px;
   height: 100vh;
-  background-color: #2c3e50;
-  color: white;
+  padding: 16px;
+  background-color: var(--cor-menu);
+  color: var(--cor-branco);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
-  box-sizing: border-box;
   transition: width 0.3s ease;
   z-index: 100;
 }
@@ -25,11 +59,8 @@ Contém estilos padrão para layout, menu lateral, botões e responsividade
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 30px;
 }
 
-
-/* Recolhido (somente ícones visíveis) */
 .menu-lateral.recolhido {
   width: 60px;
   align-items: center;
@@ -37,28 +68,29 @@ Contém estilos padrão para layout, menu lateral, botões e responsividade
   overflow: hidden;
 }
 
-/* Oculta textos quando recolhido */
 .menu-lateral.recolhido .menu-text {
   display: none;
 }
 
-/* ========== BOTÃO HAMBÚRGUER ========== */
+/* Botão para recolher/abrir o menu */
+
 .menu-toggle {
+  align-self: flex-start;
+  padding: 8px;
+  margin-bottom: 10px;
   background: transparent;
   border: none;
-  color: white;
+  border-radius: var(--raio);
+  color: var(--cor-branco);
   cursor: pointer;
-  margin-bottom: 20px;
-  padding: 8px;
-  transition: background 0.2s ease;
-  border-radius: 4px;
 }
 
 .menu-toggle:hover {
-  background-color: #34495e;
+  background-color: var(--cor-menu-hover);
 }
 
-/* ========== ITENS DO MENU ========== */
+/* Links do menu */
+
 .menu-itens {
   display: flex;
   flex-direction: column;
@@ -69,78 +101,67 @@ Contém estilos padrão para layout, menu lateral, botões e responsividade
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
-  text-decoration: none;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: var(--raio);
+  color: var(--cor-branco);
+  text-decoration: none;
   transition: background 0.2s ease;
 }
 
-.menu-link:hover {
-  background-color: #34495e;
+.menu-link:hover,
+.menu-link.ativo {
+  background-color: var(--cor-menu-hover);
 }
 
-/* ========== BOTÃO SAIR ========== */
+/* Botão sair */
+
 .btn-sair {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
   padding: 10px;
-  border-radius: 4px;
+  background-color: var(--cor-perigo);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: var(--raio);
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .btn-sair:hover {
-  background-color: #c0392b;
+  background-color: var(--cor-perigo-hover);
 }
 
-.menu-lateral.recolhido .btn-sair .menu-text {
-  display: none;
-}
+/* =========================================================
+   ÁREA PRINCIPAL
+   ========================================================= */
 
-/* ========== SCROLL SOMENTE NA ÁREA PRINCIPAL ========== */
-.main-content {
-  margin-left: 240px; /* Espaço reservado ao menu */
-  padding: 20px;
-  height: 100vh;
-  overflow-y: auto;
+.conteudo-principal,
+.conteudo {
+  min-height: 100vh;
+  margin-left: 240px;
+  padding: 30px;
+  background: var(--cor-fundo);
   transition: margin-left 0.3s ease;
 }
 
-.menu-lateral.recolhido ~ .main-content {
+.menu-lateral.recolhido ~ .conteudo-principal,
+.menu-lateral.recolhido ~ .conteudo {
   margin-left: 60px;
 }
 
-/* Container do conteúdo principal */
-.conteudo-principal {
-  margin-left: 240px;
-  padding: 20px;
-  height: 100vh;
-  overflow-y: auto;
-  background: #f4f4f4;
-  box-sizing: border-box;
-}
-
-/* Quando menu estiver recolhido */
-.menu-lateral.recolhido + .conteudo-principal {
-  margin-left: 60px;
-}
-
-/* Header da tela */
 .cabecalho {
   margin-bottom: 20px;
 }
 
-.cabecalho h1 {
-  margin: 0;
-  font-size: 28px;
+.cabecalho h1,
+.conteudo h1 {
+  margin-top: 0;
+  color: var(--cor-menu);
 }
 
-/* Cards do conteúdo */
+/* Cards do painel */
+
 .painel-conteudo {
   display: flex;
   flex-wrap: wrap;
@@ -148,10 +169,43 @@ Contém estilos padrão para layout, menu lateral, botões e responsividade
 }
 
 .card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
   flex: 1 1 300px;
   min-width: 250px;
+  padding: 20px;
+  background: var(--cor-branco);
+  border-radius: 8px;
+  box-shadow: var(--sombra);
+}
+
+/* =========================================================
+   ACESSIBILIDADE BÁSICA
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   TELAS MENORES
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .menu-lateral {
+    width: 60px;
+    padding: 16px 8px;
+  }
+
+  .menu-lateral .menu-text {
+    display: none;
+  }
+
+  .conteudo-principal,
+  .conteudo {
+    margin-left: 60px;
+    padding: 20px;
+  }
 }
