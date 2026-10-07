@@ -1,92 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Painel ERP</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/painel.css"> <!-- CSS exclusivo -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel ERP</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/painel.css">
 </head>
-
 <body>
+  <aside class="menu-lateral" id="menuLateral">
+  <div class="menu-topo">
+    <button class="menu-toggle" id="btnToggleMenu" type="button" title="Recolher/Expandir" aria-label="Recolher ou expandir menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
+      </svg>
+    </button>
 
-    <div class="menu-lateral">
+    <nav class="menu-itens" aria-label="Menu principal">
+      <a href="painel.html" class="menu-link" title="Painel">
+        <svg width="20" height="20" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z" />
+        </svg>
+        <span class="menu-text">Painel</span>
+      </a>
 
-        <div class="menu-lateral" id="menuLateral">
-            <div class="menu-topo">
-                <button class="menu-toggle" id="btnToggleMenu" title="Recolher/Expandir">
-                    <!-- Ícone SVG de hambúrguer -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-                        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
-                    </svg>
-                </button>
+      <a href="usuarios.html" class="menu-link" title="Usuários">
+        <svg width="20" height="20" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
+        </svg>
+        <span class="menu-text">Usuários</span>
+      </a>
+    </nav>
+  </div>
 
-                <div class="menu-itens">
-                    <a href="#" class="menu-link" title="Painel">
-                        <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
-                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z" />
-                        </svg>
-                        <span class="menu-text">Painel</span>
-                    </a>
+  <button class="btn-sair" id="btnSair" type="button" title="Sair">
+    <svg width="20" height="20" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zM20 3h-8v2h8v14h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+    </svg>
+    <span class="menu-text">Sair</span>
+  </button>
+</aside>
+  <main class="conteudo-principal">
+    <header class="cabecalho">
+      <h1>Painel Principal</h1>
+      <p>Bem-vindo, <span id="nomeUsuario"></span></p>
+      <p>Nível: <span id="nivelUsuario"></span></p>
+    </header>
 
-                    <a href="#" class="menu-link" title="Usuários">
-                        <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
-                            <path
-                                d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
-                        </svg>
-                        <span class="menu-text">Usuários</span>
-                    </a>
-                </div>
-            </div>
-            <button class="btn-sair" id="btnSair" title="Sair">
-                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
-                    <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zM20 3h-8v2h8v14h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
-                </svg>
-                <span class="menu-text">Sair</span>
-            </button>
-        </div>
+    <section class="painel-conteudo">
+      <div class="card">
+        <h3>Status do Sistema</h3>
+        <p>Tudo está funcionando perfeitamente.</p>
+      </div>
 
-    </div>
+      <div class="card">
+        <h3>Próximas etapas</h3>
+        <ul>
+          <li>Criar tela de gerenciamento de usuários</li>
+          <li>Montar dashboard com estatísticas</li>
+          <li>Implementar controle de acessos</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-    <!-- Área principal -->
-    <main class="conteudo-principal">
-        <header class="cabecalho">
-            <h1>Painel Principal</h1>
-            <p>Bem-vindo, <span id="nomeUsuario"></span></p>
-            <p>Nível: <span id="nivelUsuario"></span></p>
-        </header>
-
-        <section class="painel-conteudo">
-            <!-- Aqui virão os cards, gráficos ou tabelas -->
-            <div class="card">
-                <h3>Status do Sistema</h3>
-                <p>Tudo está funcionando perfeitamente 😎</p>
-            </div>
-
-            <div class="card">
-                <h3>Próximas etapas</h3>
-                <ul>
-                    <li>Criar tela de gerenciamento de usuários</li>
-                    <li>Montar dashboard com estatísticas</li>
-                    <li>Implementar controle de acessos</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        const btnToggle = document.getElementById('btnToggleMenu');
-        const menuLateral = document.querySelector('.menu-lateral');
-
-        btnToggle.addEventListener('click', () => {
-            menuLateral.classList.toggle('recolhido');
-        });
-
-        document.getElementById('btnToggleMenu').addEventListener('click', () => {
-            document.getElementById('menuLateral').classList.toggle('recolhido');
-        });
-
-    </script>
+  <script src="js/menu.js"></script>
 </body>
-
 </html>
